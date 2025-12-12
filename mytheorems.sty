@@ -1,0 +1,153 @@
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+\usepackage{refcount}
+% \usepackage{thmtools}
+
+\newtcbtheorem[list inside=dfns]{dfn}{定義}{enhanced,
+	coltitle=black,
+	colbacktitle=white!92!black,
+	colback=white!92!black,
+	colframe=white!92!black,
+	title=#1,
+	fonttitle=\gtfamily,
+	breakable=true,
+	top=4mm,
+	sharp corners=all,
+	oversize
+}{dfnNum}
+\newtcbtheorem[list inside=axioms]{axiom}{公理}{enhanced,
+	attach boxed title to top left={xshift=5mm,yshift=-3mm},
+	boxed title style={colframe=green!35!black,colback=white},
+	coltitle=black,
+	colback=white,
+	colframe=green!35!black,
+	fonttitle=\gtfamily\bfseries,
+	breakable=true,
+	top=4mm
+}{axiomNum}
+\newtcbtheorem[list inside=thms]{_thm}{定理}{enhanced,
+	coltitle=black,
+	colbacktitle=white,
+	colback=white,
+	colframe=black,
+	detach title,
+	before upper={\tcbtitle\quad},
+	title=#1,
+	fonttitle=\gtfamily,
+	breakable=true,
+	boxrule=0.2mm,
+	oversize
+}{thmNum}
+\newtcbtheorem[list inside=lems]{_lem}{補題}{enhanced,
+	attach boxed title to top left={xshift=5mm,yshift=-3mm},
+	boxed title style={colframe=green!35!black,colback=white},
+	coltitle=black,
+	colback=white,
+	colframe=green!35!black,
+	fonttitle=\gtfamily\bfseries,
+	breakable=true,
+	top=4mm
+}{lemNum}
+\newcounter{_myprfcount}
+\newtcbtheorem[list inside=prfs,use counter=_myprfcount,number format=\arabic]{_prf}{証明}{enhanced,
+	% attach boxed title to top left={xshift=5mm,yshift=-3mm},
+	% boxed title style={colframe=white,colback=white},
+	coltitle=black,
+	colbacktitle=white!95!black,
+	colback=white!95!black,
+	colframe=white!95!black,
+	fonttitle=\gtfamily\bfseries,
+	breakable=true,
+	top=4mm,
+	sharp corners=all,
+	oversize
+}{prfNum}
+\newcounter{_myprflemcount}
+\newtcbtheorem[list inside=prflems,use counter=_myprflemcount,number format=\arabic]{_prflem}{証明}{enhanced,
+	% attach boxed title to top left={xshift=5mm,yshift=-3mm},
+	% boxed title style={colframe=white,colback=white},
+	coltitle=black,
+	colbacktitle=white!95!black,
+	colback=white!95!black,
+	colframe=white!95!black,
+	fonttitle=\gtfamily\bfseries,
+	breakable=true,
+	top=4mm,
+	sharp corners=all,
+	oversize
+}{prflemNum}
+\newtcbtheorem[list inside=thms]{_examplequestion}{例題}{enhanced,
+	attach boxed title to top left={xshift=5mm,yshift=-3mm},
+	boxed title style={colframe=green!35!black,colback=white},
+	coltitle=black,
+	colback=white,
+	colframe=green!35!black,
+	fonttitle=\gtfamily\bfseries,
+	breakable=true,
+	top=4mm
+}{exqNum}
+%解答
+% \newcounter{_myanswercount}
+% \newtcbtheorem[list inside=myanswers,use counter=_myanswercount,number format=\arabic]{_myanswer}{解答}{enhanced,
+% \newtcbtheorem[list inside=myanswers]{myanswer}{解答}{enhanced,
+	% attach boxed title to top left={xshift=5mm,yshift=-3mm},
+	% boxed title style={colframe=white,colback=white},
+% 	coltitle=black,
+% 	colbacktitle=white!95!black,
+% 	colback=white!95!black,
+% 	colframe=white!95!black,
+% 	fonttitle=\bfseries,
+% 	breakable=true,
+% 	top=4mm,
+% 	sharp corners=all
+% }{myanswerNum}
+
+%定理環境
+\newenvironment{thm}[2]{\begin{_thm}{#1}{#2}}{\end{_thm}}
+%補題環境
+\newenvironment{lem}[2]{\begin{_lem}{#1}{#2}}{\end{_lem}}
+%例題環境
+\newenvironment{examplequestion}[2]{\begin{_examplequestion}{#1}{#2}}{\end{_examplequestion}}
+%定理用証明環境
+% \newenvironment{prf}[1]{\setcounter{_myprfcount}{\the\numexpr\getrefnumber{thmNum:#1}-1\relax}\begin{_prf}{\nameref{thmNum:#1}}{#1}}{\end{_prf}} %証明環境のタイトルに定理名を入れたいとき
+\newenvironment{prf}[1]{\setcounter{_myprfcount}{\the\numexpr\getrefnumber{thmNum:#1}-1\relax}\begin{_prf*}{}}{\end{_prf*}}
+%補題用証明環境
+% \newenvironment{prflem}[1]{\setcounter{_myprflemcount}{\the\numexpr\getrefnumber{lemNum:#1}-1\relax}\begin{_prflem}{補題\ref{lemNum:#1}の証明}{#1}}{\end{_prflem}}
+\newenvironment{prflem}[1]{\setcounter{_myprflemcount}{\the\numexpr\getrefnumber{lemNum:#1}-1\relax}\begin{_prflem*}{}}{\end{_prflem*}}
+%解答環境
+% \newenvironment{myanswer}[1]{\setcounter{_myanswercount}{\the\numexpr\getrefnumber{thmNum:#1}-1\relax}\begin{_myanswer*}{}}{\end{_myanswer*}}
+\newenvironment{myanswer}[1]{\begin{tcolorbox}[coltitle=black,
+colbacktitle=white!95!black,
+colback=white!95!black,
+colframe=white!95!black,
+title=#1,
+fonttitle=\gtfamily\bfseries,
+breakable=true,
+top=4mm,
+sharp corners=all,
+oversize]}{\end{tcolorbox}}
+%「例」環境
+%
+\newenvironment{myexample}{\begin{tcolorbox}[coltitle=black,
+colbacktitle=white!95!black,
+colback=white!95!black,
+colframe=white!95!black,
+title=例,
+fonttitle=\gtfamily\bfseries,
+breakable=true,
+top=4mm,
+sharp corners=all,
+oversize]}{\end{tcolorbox}}
+%「課題」環境
+%
+\newenvironment{myassignment}{\begin{tcolorbox}[coltitle=black,
+colbacktitle=white!95!black,
+colback=white!95!black,
+colframe=white!95!black,
+title=課題,
+fonttitle=\gtfamily\bfseries,
+breakable=true,
+top=4mm,
+sharp corners=all,
+oversize]}{\end{tcolorbox}}

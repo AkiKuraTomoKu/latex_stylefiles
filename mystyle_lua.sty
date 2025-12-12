@@ -1,0 +1,112 @@
+\usepackage[no-math]{fontspec}
+\usepackage[no-math, deluxe, haranoaji]{luatexja-preset}
+%https://qiita.com/zr_tex8r/items/ac9176e4611bf233a3e0#%E6%AC%A7%E6%96%87%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A
+
+
+\usepackage{amssymb, amsmath}%数式
+\usepackage{mathcomp}
+\usepackage{graphicx}
+\usepackage{tikz}
+% https://tex.stackexchange.com/questions/68890/how-can-i-draw-snake-arrow-in-automata-using-tikz
+\usetikzlibrary{quotes, intersections, calc, arrows.meta, patterns, angles, decorations.pathmorphing}
+\usetikzlibrary{decorations.markings, decorations.pathmorphing}
+\usepackage{tikz-3dplot}
+\usepackage[
+	europeanresistors,
+	americaninductors,
+	oldvoltagedirection,
+	straightvoltages,
+]{circuitikz}
+
+%ここから4つはgnuplot in latex用
+%https://event.phys.s.u-tokyo.ac.jp/physlab2024/advent-calendar/22-2/
+\usepackage{float}
+\usepackage{shellesc}
+\usepackage{gnuplottex}
+\usepackage{gnuplot-lua-tikz}
+
+% \usepackage{wrapfig}
+\usepackage{enumitem} % ← \usepackage{enumerate}
+\usepackage{bm}%ボールド（ベクトルとか）
+% \usepackage{latexsym}
+\usepackage[unicode, pdfusetitle]{hyperref}%リンク貼り　https://blog.miz-ar.info/2015/09/latex-hyperref-tips/
+% \usepackage{moreverb} % ソースコード貼る、ハードタブ対応 % tcolorbox (listings) へ移行すべき (cf .gemini)
+\usepackage{mathtools}
+\usepackage{derivative}
+\usepackage{appendix}
+% \usepackage{luatexja-otf}%フォント(見出しとかが変わる（すごく太くなる）)
+\usepackage{ifthen}
+\usepackage[separate-uncertainty]{siunitx}% 物理量表示など・plextより前に書くとエラーが出る(20240418)
+
+% \usepackage{empheq}
+% \usepackage{shortlst} % tasks へ移行すべき (cf .gemini)
+\usepackage{silence}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{booktabs}
+\usepackage{multirow}
+% \usepackage{breqn} % つかいこなせなさそう・こいつ入れると$V_\mathrm{m}$っていう表記がアカンくなる（$V_{\mathrn{m}}$ならいける）
+\usepackage{steinmetz} % 角度記号$\angle$の中に文字を入れられる($\phase{#1}$)
+\usepackage{eurosym}
+
+\hypersetup{
+	% setpagesize=false, % lualatex ではいらんらしい
+	bookmarksnumbered=true,%
+	bookmarksopen=true,%
+	colorlinks=true,%
+	linkcolor=black,
+	citecolor=black,
+	urlcolor=black,
+}
+\mathtoolsset{showonlyrefs,showmanualtags}
+\mathtoolsset{showonlyrefs=true}
+\def\eminnershape{\gtfamily\ebseries}%強調の入れ子の定義({\em {\em abcdefghijk}})
+
+% \renewenvironment{dmath}{\begin{dmath*}}{\end{dmath*}}
+% breqnに付随するやつ
+% https://tex.stackexchange.com/questions/156433/disabling-enumeration-for-a-document
+
+% \usepackage{mytheorems}
+\usepackage{mycommands}
+
+% siunitxの諸設定
+\sisetup{input-digits = 0123456789\pi}
+\sisetup{list-separator = {\text{, }}}
+\sisetup{list-pair-separator = {\text{, }}}
+\sisetup{list-final-separator = {\text{, }}}
+\sisetup{complex-root-position = before-number}
+\sisetup{input-complex-root = ij}
+\sisetup{output-complex-root = {\j}}
+\sisetup{per-mode=symbol}
+\DeclareSIUnit\voltampere{VA} % ボルトアンペア（皮相電力）
+\DeclareSIUnit\var{var}% バール（無効電力）
+\DeclareSIUnit\year{year}% バール（無効電力）
+\DeclareSIUnit\vpp{V_{pp}}% バール（無効電力）
+\DeclareSIUnit\deg{deg}% 度
+\DeclareSIUnit\prdg{\% rdg}% \%rdg (https://faq.as-1.co.jp/faq/show/267138?site_domain=default)
+\DeclareSIUnit\dgt{dgt}% dgt (https://faq.as-1.co.jp/faq/show/267138?site_domain=default)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+%節の定義
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%インデント
+{1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%見出しの前の縦空白
+{.5\Cvs \@plus.3\Cvs}%見出しの後の縦空白
+{\reset@font\LARGE\gtfamily\bfseries}}%見出しのスタイル
+
+%小節の定義
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%インデント
+{1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%見出しの前の縦空白
+{.5\Cvs \@plus.3\Cvs}%見出しの後の縦空白
+{\reset@font\large\gtfamily\bfseries}}%見出しのスタイル
+%
+%小々節の定義
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%インデント
+{1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%見出しの前の縦空白
+{.5\Cvs \@plus.3\Cvs}%見出しの後の縦空白
+{\reset@font\normalsize\gtfamily\bfseries}}%見出しのスタイル
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%簡易な定理環境

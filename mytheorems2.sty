@@ -1,0 +1,32 @@
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\newtcbtheorem[list inside=dfnthms, number within=section]{dfn}{定義}{
+	enhanced,
+	coltitle=black,
+	colbacktitle=white!92!black,
+	colback=white!92!black,
+	colframe=white!92!black,
+	title=#1,
+	fonttitle=\gtfamily,
+	breakable=true,
+	top=4mm,
+	sharp corners=all,
+	oversize
+}{dfnNum}
+
+\newtcbtheorem[list inside=dfnthms, number within=section, use counter from=dfn]{thm}{定理}{
+	enhanced,
+	coltitle=black,
+	colbacktitle=white,
+	colback=white,
+	colframe=black,
+	detach title,
+	before upper={\tcbtitle\quad},
+	title=#1,
+	fonttitle=\gtfamily,
+	breakable=true,
+	boxrule=0.2mm,
+	oversize
+}{thmNum}

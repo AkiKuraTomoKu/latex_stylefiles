@@ -1,0 +1,261 @@
+\newcommand*{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand*{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand*{\cardinality}[1]{\left\lvert#1\right\rvert}
+\newcommand*{\sequence}[2][n]{\{{#2}_{#1}\}_{{#1}=1}^{\infty}}
+\newcommand*{\sequenceonlyname}[2][n]{\{#2\}_{{#1}=1}^{\infty}}
+\newcommand*{\sequenceFromZero}[2][n]{\{{#2}_{#1}\}_{{#1}=0}^{\infty}}
+\newcommand*{\series}[1]{\sum_{n=1}^{\infty}#1_n}
+\newcommand*{\seriesonlyname}[1]{\sum_{n=1}^{\infty}#1}
+\newcommand*{\partialsum}[1]{\sum_{i=1}^{n}#1_i}
+\newcommand*{\limitInfty}[2][]{\lim_{#2\to#1\infty}}
+\newcommand*{\limitReal}[2]{\lim_{#1\to#2}}
+
+% 行列
+\newcommand*{\mnMatrix}[3][K]{\mathrm{M}(#2,#3;\mathbb{#1})}
+\newcommand*{\sqMatrix}[2][K]{\mathrm{M}_{#2}(\mathbb{#1})}
+\newcommand*{\areaone}[2]{{1\leq #1\leq #2}}
+\newcommand*{\areatwo}[4]{{1\leq #1\leq #3 \atop 1\leq #2\leq #4}}
+\newcommand*{\entryMatrix}[5]{\left(#1\right)_{\areatwo{#2}{#3}{#4}{#5}}}
+\newcommand*{\entrysqMatrix}[4]{\left(#1\right)_{\areatwo{#2}{#3}{#4}{#4}}}
+\newcommand*{\transMatrix}[1]{{}^{t} \! #1}
+\newcommand{\transpose}[1]{% https://qiita.com/Yarakashi_Kikohshi/items/d488d3b2f98f37354b8a
+	\prescript{t\!}{}{#1} % 左上に"t"の場合
+	% #1 ^ \top % 右上に"T"の場合
+}
+\newcommand{\adjugate}[1]{
+	% {#1}^{*}
+	{#1}^{\dagger}
+}
+\newcommand*{\inverse}[1]{#1^{-1}}
+\newcommand{\adjinv}[1]{
+	{#1}^{-*}
+}
+% \newcommand*{\Mat}[1]{\bm{#1}}
+\newcommand*{\Mat}[1]{{#1}}
+\newcommand*{\inversemat}[1]{\inverse{\Mat{#1}}}
+\newcommand*{\vect}[1]{\bm{#1}}
+\newcommand*{\vecte}[1][e]{
+	% \mathbf{#1}
+	\vect{#1}
+}
+\newcommand*{\innerp}[3][]{
+	% #1\!\left(#2, #3\right)
+	#1\!\left\langle #2, #3 \right\rangle
+}
+\newcommand*{\basis}[1]{\underbar{\vect{#1}}}
+
+\newcommand*{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand*{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+\newcommand*{\tetration}[2]{{}^{#2} #1}
+
+\newcommand*{\combination}[2]{{}_{#1}\mathrm{C}_{#2}}
+\newcommand*{\permutation}[2]{{}_{#1}\mathrm{P}_{#2}}
+\newcommand*{\homogeneousProduct}[2]{{}_{#1}\mathrm{H}_{#2}}
+
+% 微分とか. \usepackage{derivative}により不要になった
+% \newcommand*{\partD}[1]{\frac{\partial}{\partial {#1}}}%偏微分. 1階のみ.
+% \newcommand*{\partDnum}[2]{\frac{\partial^{#1}}{\partial {#2}^{#1}}}%偏微分. 階数を指定.
+% \newcommand*{\partDtwo}[2]{\frac{\partial^2}{\partial {#1} \partial {#2}}}%偏微分. 各1階のみ. 相異2変数で偏微分.
+% \newcommand*{\partDf}[2]{\frac{\partial {#1}}{\partial {#2}}}%偏微分. 被偏微分関数を指定可能. 1階のみ.
+% \newcommand*{\partDfnum}[3]{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}%偏微分. 階数を指定. 被偏微分関数を指定可能.
+% \newcommand*{\partDftwo}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}%偏微分. 各1階のみ. 被偏微分関数を指定可能. 相異2変数で偏微分.
+
+
+\newcommand*{\st}{~~\mathrm{s.t.}~~}
+\newcommand*{\rmor}{~~\mathrm{or}~~}
+\newcommand*{\rmand}{~~\mathrm{and}~~}
+
+\newcommand*{\emphmedium}[1]{{\gtfamily #1}}
+
+% 定数
+\newcommand*{\e}{\mathrm{e}}
+\renewcommand*{\i}{
+	\mathrm{i}
+	% i
+}%なんか使われてるけど変更しちゃう
+\renewcommand*{\j}{\mathrm{j}}%なんか使われてるけど変更しちゃう
+
+\newcommand*{\id}{\mathrm{id}}
+
+% よくある集合
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\C}{\mathbb{C}}
+\newcommand*{\K}{\mathbb{K}}
+
+% 集合の縦棒
+\newcommand*{\setmid}{\mathrel{}\middle|\mathrel{}}
+
+% 置換
+\newcommand*{\symgr}{\mathfrak{S}}%対称群(symmetric group)
+% 符号関数
+\DeclareMathOperator{\sgn}{sgn}
+
+% 確率論
+\newcommand*{\expv}[1]{\mathbb{E} [#1]}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+
+% 定行列
+\renewcommand*{\O}{\Mat{O}}%"\O"は空集合の由来のノルウェーアルファベットに使われてるらしいけど"\emptyset"とかもあるし気にしない。
+\newcommand*{\E}{\Mat{E}}
+\newcommand*{\I}{\Mat{I}}
+
+% 複素数
+\renewcommand*{\Re}{\mathrm{Re}}%Re,Im（実部・虚部)をFrakturではなく立体で出力
+\renewcommand*{\Im}{\mathrm{Im}}
+% \newcommand*{\conjugate}[1]{\overline{#1}}
+\newcommand*{\conjugate}[1]{
+	{#1}^{*} % 物理学・電気工学・情報工学（∵論理否定と混ざるから）
+	% \overline{#1} % 数学（特に線型代数学）（∵随伴行列と混ざるから）
+}
+\newcommand*{\cc}{~~\mathrm{c.c.}~~}
+
+% フェーザ
+\newcommand*{\phasor}[1]{
+	% \dot{#1}
+	\tilde{#1}
+}
+\newcommand*{\polar}[3]{{#1}\,\phase{\ang{#2}}\,\unit{#3}}
+\newcommand*{\polarE}[4][]{(\qty{#2}{#4}) \e ^ {{#1} \j {#3}}}
+
+% 写像合成
+\newcommand*{\comp}{\mathbin{\circ}}
+
+% アッカーマン関数
+\DeclareMathOperator{\Ack}{Ack}
+
+% 逆三角関数
+\DeclareMathOperator{\Acos}{Arccos}
+\DeclareMathOperator{\Asin}{Arcsin}
+\DeclareMathOperator{\Atan}{Arctan}
+\DeclareMathOperator{\acos}{arccos}
+\DeclareMathOperator{\asin}{arcsin}
+\DeclareMathOperator{\atan}{arctan}
+
+% ベクトル解析
+\DeclareMathOperator{\divergence}{div}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\grad}{grad}
+
+%生成(Span)
+\DeclareMathOperator{\Span}{Span}
+\newcommand*{\vspan}[1]{\left\langle#1\right\rangle}
+
+%線型写像
+\DeclareMathOperator{\Kernel}{Ker}
+\DeclareMathOperator{\Image}{Im}
+
+%零空間
+\DeclareMathOperator{\Null}{null}
+
+
+%階数
+\DeclareMathOperator{\rank}{rank}
+
+%トレース
+\DeclareMathOperator{\tr}{tr}
+
+%値域
+\DeclareMathOperator{\range}{range}
+
+%対角行列
+\DeclareMathOperator{\diag}{diag}
+
+%符号
+\DeclareMathOperator{\sign}{sign}
+
+%Laplace変換
+\renewcommand*{\L}{\mathcal{L}}%なんか使われてるけど変更しちゃう
+
+% 統計分布
+\DeclareMathOperator{\Ga}{Ga} % ガンマ分布
+\DeclareMathOperator{\Po}{Po} % ポアソン分布
+\DeclareMathOperator{\Ex}{Ex} % 指数分布
+\DeclareMathOperator{\Bi}{Bi} % ベルヌーイ分布
+\DeclareMathOperator{\Be}{Be} % ベータ分布
+\DeclareMathOperator{\No}{N} % 正規分布
+
+
+
+% 論理
+\newcommand*{\lxor}{\oplus}
+\newcommand*{\lnotbar}[1]{\overline{#1}}
+
+% 日付
+\newcommand*{\printdate}{{\the\year}\,/\,{\two@digits\month}\,/\,{\two@digits\day}}
+\newcommand*{\printtime}{{\two@digits\hour}\,:\,{\two@digits\minute}}
+
+% 強調
+\renewcommand*{\emph}[1]{{\gtfamily\bfseries #1}}
+%強調を弱くしたいときは\bfseries
+%強くしたいときは\ebseries
+
+% maruよりtcirc推奨
+\def\maru#1{\textcircled{\footnotesize#1}}
+% \def\maru#1{\textcircled{\scriptsize#1}}
+% \def\maru#1{\textcircled{\footnotesize\resizebox{1zw}{\height}{#1}}}
+% 以下はemath.styのzwmaruを参考にした。
+% \def\maru#1{{
+% 	\ifthenelse{\NOT\equal{#1}\empty \AND \isodd{0#11}}{
+% 		\ifthenelse{#1<10}{
+% 			\textcircled{\footnotesize#1}
+% 		}{
+% 			\textcircled{\scriptsize\resizebox{1zw}{\height}{#1}}
+% 		}
+% 	}{
+% 		\textcircled{\scriptsize\resizebox{1zw}{\height}{#1}}
+% 	}
+% }}
+\newcommand*\tcirc[1]{%
+	\raisebox{-0.5pt}{%
+		\textcircled{\fontsize{8pt}{0}\selectfont #1}%
+	}%
+}
+
+% 長めの分数
+\newcommand*{\fraclong}[2]{\frac{\hspace{0.1em}#1\hspace{0.1em}}{\hspace{0.1em}#2\hspace{0.1em}}}
+\newcommand*{\cfraclong}[2]{\cfrac{\hspace{0.1em}#1\hspace{0.1em}}{\hspace{0.1em}#2\hspace{0.1em}}}
+
+% 増減表とかにバツを書きたい
+% \newcommand{\cross}{{\Large$\times$}}
+% \newcommand{\cross}{\scalebox{2.0}{\raisebox{-0.1zw}{$\times$}}}
+
+%↓"http://did2.blog64.fc2.com/blog-entry-339.html"より
+\def\qed{\hfill $\Box$}
+
+
+% 増減表の2回微分欄の矢印
+%↓"https://note.com/dan_oyama/n/n8be58e8797b2"より
+\newcommand{\nelarrow}{
+\begin{tikzpicture}[scale=0.3,baseline=0.3]
+\draw[->,>=stealth] (0,0) to[bend right=45] (1,1);
+\end{tikzpicture}
+}
+\newcommand{\nerarrow}{
+\begin{tikzpicture}[scale=0.3,baseline=0.3]
+\draw[->,>=stealth] (0,0) to[bend left=45] (1.2,1);
+\end{tikzpicture}
+}
+
+\newcommand{\serarrow}{
+\begin{tikzpicture}[scale=0.3,baseline=0.3]
+\draw[->,>=stealth] (0,1) to[bend left=45] (1,0);
+\end{tikzpicture}
+}
+
+\newcommand{\selarrow}{
+\begin{tikzpicture}[scale=0.3,baseline=0.3]
+\draw[->,>=stealth] (0,1) to[bend right=45] (1.2,0);
+\end{tikzpicture}
+}
+
+
+%https://takuma-art.blogspot.com/2011/07/tex.html
+% \makeatletter
+% \newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+% \newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+% \makeatother
