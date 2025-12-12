@@ -88,25 +88,42 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeatletter
-%節の定義
-\renewcommand{\section}{\@startsection{section}{1}{\z@}%インデント
-{1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%見出しの前の縦空白
-{.5\Cvs \@plus.3\Cvs}%見出しの後の縦空白
-{\reset@font\LARGE\gtfamily\bfseries}}%見出しのスタイル
+\usepackage{titlesec}
 
-%小節の定義
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%インデント
-{1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%見出しの前の縦空白
-{.5\Cvs \@plus.3\Cvs}%見出しの後の縦空白
-{\reset@font\large\gtfamily\bfseries}}%見出しのスタイル
-%
-%小々節の定義
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%インデント
-{1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%見出しの前の縦空白
-{.5\Cvs \@plus.3\Cvs}%見出しの後の縦空白
-{\reset@font\normalsize\gtfamily\bfseries}}%見出しのスタイル
+% --- section (節) ---
+\titleformat{\section}
+    {\LARGE\gtfamily\bfseries}  % 文字のスタイル
+    {\thesection}               % ラベル（1. など）
+    {1em}                       % ラベルとタイトルの間の空き
+    {}                          % タイトル直前に挿入するコード
 
-\makeatother
+\titlespacing*{\section}
+    {0pt}                                 % 左インデント
+    {1.5\Cvs plus .5\Cvs minus .2\Cvs}    % 上の空き
+    {.5\Cvs plus .3\Cvs}                  % 下の空き
+
+% --- subsection (小節) ---
+\titleformat{\subsection}
+    {\large\gtfamily\bfseries}
+    {\thesubsection}
+    {1em}
+    {}
+
+\titlespacing*{\subsection}
+    {0pt}
+    {1.5\Cvs plus .5\Cvs minus .2\Cvs}
+    {.5\Cvs plus .3\Cvs}
+
+% --- subsubsection (小々節) ---
+\titleformat{\subsubsection}
+    {\normalsize\gtfamily\bfseries}
+    {\thesubsubsection}
+    {1em}
+    {}
+
+\titlespacing*{\subsubsection}
+    {0pt}
+    {1.5\Cvs plus .5\Cvs minus .2\Cvs}
+    {.5\Cvs plus .3\Cvs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%簡易な定理環境
