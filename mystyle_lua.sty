@@ -128,4 +128,17 @@
     {1.5\Cvs plus .5\Cvs minus .2\Cvs}
     {.5\Cvs plus .3\Cvs}
 
+% --- paragraph (段落) ---
+% [runin] を指定することで、見出しの後ろに改行せず本文を続けます
+\titleformat{\paragraph}[runin]
+    {\normalsize\gtfamily\bfseries\boldmath} % フォント（本文と同じサイズ、ゴシック太字）
+    {}                 % ラベル
+    {1em}                           % ラベルとタイトルの空き
+    {■\hspace{0.5em}}
+
+\titlespacing*{\paragraph}
+    {0pt}                                 % 左インデント
+    {1.0\Cvs plus .5\Cvs minus .2\Cvs}    % 上の空き（前の段落との間隔）
+    {1em}                                 % 下の空き（タイトルと本文の間隔）
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%簡易な定理環境
