@@ -17,6 +17,7 @@
 	oldvoltagedirection,
 	straightvoltages,
 ]{circuitikz}
+\tikzset{>=Stealth}
 
 %ここから4つはgnuplot in latex用
 %https://event.phys.s.u-tokyo.ac.jp/physlab2024/advent-calendar/22-2/
@@ -78,6 +79,7 @@
 \sisetup{input-complex-root = ij}
 \sisetup{output-complex-root = {\j}}
 \sisetup{per-mode=symbol}
+\sisetup{range-phrase = \text{--}}
 \DeclareSIUnit\voltampere{VA} % ボルトアンペア（皮相電力）
 \DeclareSIUnit\var{var}% バール（無効電力）
 \DeclareSIUnit\year{year}% バール（無効電力）
@@ -88,6 +90,7 @@
 \DeclareSIUnit\dec{dec}% dec
 \DeclareSIUnit\M{\mole\per\litre}% mol / L
 \DeclareSIUnit\rpm{rpm}% rpm
+\DeclareSIUnit\angstrom{\text{\AA}}% オングストローム
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

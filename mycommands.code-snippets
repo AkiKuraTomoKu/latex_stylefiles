@@ -1,0 +1,69 @@
+// 参考に：https://github.com/James-Yu/LaTeX-Workshop/tree/master/data/packages
+// 例:
+// {
+//     "Schrodinger Equation": {
+//         "scope": "latex",  // ← これさえ書いておけばファイル名は何でもOK！
+//         "prefix": "sch",
+//         "body": [
+//             "i\\hbar \\frac{\\partial}{\\partial t} \\Psi = \\hat{H} \\Psi"
+//         ],
+//         "description": "シュレーディンガー方程式"
+//     },
+// }
+{
+    "limitInfty{}": {
+        "scope": "latex",
+        "prefix": "lim",
+        "body": [
+            "\\limitInfty{${1:変数}} $0"
+        ],
+        "description": "無限大への極限"
+    },
+    "limitInfty[]{}": {
+        "scope": "latex",
+        "prefix": "lim",
+        "body": [
+            "\\limitInfty[${1:符号}]{${2:変数}} $0"
+        ],
+        "description": "正負無限大への極限"
+    },
+    "abs{}": {
+        "scope": "latex",
+        "prefix": "\\abs",
+        "body": [
+            "\\abs{$1} $0"
+        ],
+        "description": "絶対値"
+    },
+    "norm{}": {
+        "scope": "latex",
+        "prefix": "\\norm",
+        "body": [
+            "\\norm{$1} $0"
+        ],
+        "description": "ノルム"
+    },
+    "gnuplot_template": {
+        "scope": "latex",
+        "prefix": "gnuplot",
+        "body": [
+            "\\begin{gnuplot}[terminal=tikz, terminaloptions={plotsize 11cm, 6cm}]",
+            "\tset samples 10",
+            "\tset xrange [ 0 : 0.05 ]",
+            "\tset yrange [ 0 : 500 ]",
+            "\tset grid",
+            "\tset xlabel \"x\"",
+            "\tset ylabel \"y\"",
+            "\t# set xtics 20",
+            "\t# set ytics 20",
+            "\t# set format x \"$%.2f$\"",
+            "\t# set format y \"$%.1f$\"",
+            "\t# set key at 0.53, 2100",
+            "\tset key box",
+            "\tplot \\",
+	        "\t\"\" notitle w p pt 7 lc 7 ps 1.5",
+            "\\end{gnuplot}"
+        ],
+        "description": "gnuplottex のテンプレート"
+    }
+}
