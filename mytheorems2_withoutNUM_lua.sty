@@ -1,9 +1,10 @@
 \usepackage{amsthm}
 \usepackage{tcolorbox}
-\tcbuselibrary{breakable, skins, theorems}
+\tcbuselibrary{breakable, skins, theorems, external}
 
 \newtcolorbox{dfn}[2][]{
 	enhanced,
+	shield externalize, % external から守る
 	coltitle=black,
 	colbacktitle=white!92!black,
 	colback=white!92!black,
@@ -20,6 +21,7 @@
 
 \newtcolorbox{thm}[2][]{
 	enhanced,
+	shield externalize,
 	coltitle=black,
 	colbacktitle=white,
 	colback=white,
@@ -38,6 +40,7 @@
 
 \newtcolorbox{eg}[1][]{
 	enhanced,
+	shield externalize,
 	coltitle=black,
 	colbacktitle=white,
 	colback=white,
@@ -50,6 +53,7 @@
 	before upper={\tcbtitle\quad\setlength{\parindent}{1\zw}},
 	#1
 	% enhanced,
+	% shield externalize,
 	% coltitle=black,
 	% colbacktitle=white,
 	% colback=white,
@@ -65,6 +69,7 @@
 
 \newtcolorbox{prf}[1][]{
 	enhanced,
+	shield externalize,
 	coltitle=black,
 	colbacktitle=white,
 	colback=white,
@@ -77,6 +82,7 @@
 	before upper={\tcbtitle\quad\setlength{\parindent}{1\zw}},
 	#1
 	% enhanced,
+	% shield externalize,
 	% coltitle=black,
 	% colbacktitle=white,
 	% colback=white,
@@ -92,6 +98,7 @@
 
 \newtcolorbox{graybox}[2][]{
 	enhanced,
+	shield externalize,
 	coltitle=black,
 	colbacktitle=white!92!black,
 	colback=white!92!black,
@@ -102,7 +109,7 @@
 	% top=4mm,
 	sharp corners=all,
 	oversize,
-	after title={\setlength{\parindent}{1\zw}},
+	before upper={\setlength{\parindent}{1\zw}},
 	#1
 }
 
@@ -110,6 +117,7 @@
 
 \newtcolorbox{ans}[1][]{
 	enhanced,
+	shield externalize,
 	coltitle=black,
 	colbacktitle=white,
 	colback=white,
@@ -122,6 +130,7 @@
 	before upper={\tcbtitle\quad\setlength{\parindent}{1\zw}},
 	#1
 	% enhanced,
+	% shield externalize,
 	% coltitle=black,
 	% colbacktitle=white,
 	% colback=white,
@@ -138,6 +147,7 @@
 
 \newtcolorbox{whitebox}[2][]{
 	enhanced,
+	shield externalize,
 	coltitle=black,
 	colbacktitle=white,
 	colback=white,
@@ -152,6 +162,7 @@
 }
 
 	% enhanced,
+	% shield externalize,
 	% coltitle=black,
 	% colbacktitle=white,
 	% colback=white,

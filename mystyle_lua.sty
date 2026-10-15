@@ -23,8 +23,19 @@
 %https://event.phys.s.u-tokyo.ac.jp/physlab2024/advent-calendar/22-2/
 \usepackage{float}
 \usepackage{shellesc}
-\usepackage{gnuplottex}
-\usepackage{gnuplot-lua-tikz}
+% \usepackage{gnuplottex}
+% \usepackage{gnuplot-lua-tikz}
+\usepackage{pgfplots} % gnuplot が重すぎたので pgfplots に移行
+\pgfplotsset{compat=1.18}
+
+% externalライブラリの読み込みと設定
+\usepgfplotslibrary{external}
+\tikzexternalize[
+    prefix=tikz_cache/, % キャッシュ保存先ディレクトリ（事前に空フォルダを作成しておく）
+    system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}
+]
+
+%% ここまでグラフ描画用
 
 % \usepackage{wrapfig}
 \usepackage{enumitem} % ← \usepackage{enumerate}
